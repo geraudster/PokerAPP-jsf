@@ -6,17 +6,16 @@ package com.valtechtraining.pokerjsf.view;
 
 import com.valtechtraining.pokerjsf.domain.Player;
 import com.valtechtraining.pokerjsf.service.PlayerManager;
-import com.valtechtraining.pokerjsf.service.PlayerManagerBean;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author Training
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class PlayerDetailsBean {
     @EJB
     private PlayerManager playerManager;
@@ -69,4 +68,5 @@ public class PlayerDetailsBean {
     public void searchPlayer(){
         player = playerManager.getPlayerDetails(username);
     }
+
 }
