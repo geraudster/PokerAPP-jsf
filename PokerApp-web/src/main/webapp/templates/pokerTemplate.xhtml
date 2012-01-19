@@ -17,7 +17,8 @@
 
         <div id="top" class="top">
             <ui:insert name="top"><h:link value="Top" outcome="/Login.xhtml" /> /
-            <h:link outcome="#{loginBean.logout()}" rendered="#{profileBean.authenticated}" value="Logout" /></ui:insert>
+            <h:link outcome="#{loginBean.logout()}" rendered="#{profileBean.authenticated}" value="Logout" />
+            <h:outputText value="Hello #{profileBean.player.firstName}"/></ui:insert>
         </div>
 
         <div id="content" class="center_content">

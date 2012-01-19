@@ -5,7 +5,6 @@
 package com.valtechtraining.pokerjsf.service;
 
 import com.valtechtraining.pokerjsf.domain.Player;
-import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,15 +12,8 @@ import javax.ejb.Local;
  * @author Training
  */
 @Local
-public interface PlayerManager {
+public interface Tartampion {
 
-    Player authenticate(String username, String password);
-
-    void createPlayer(Player player);
-
-    Player getPlayerDetails(String username);
-
-    List<Player> getPlayers();
+    Player getPlayer();
     
-    public void testTartampion();
 }

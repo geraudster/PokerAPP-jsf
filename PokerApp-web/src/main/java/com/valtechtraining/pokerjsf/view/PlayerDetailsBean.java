@@ -6,6 +6,7 @@ package com.valtechtraining.pokerjsf.view;
 
 import com.valtechtraining.pokerjsf.domain.Player;
 import com.valtechtraining.pokerjsf.service.PlayerManager;
+import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -16,7 +17,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean
 @SessionScoped
-public class PlayerDetailsBean {
+public class PlayerDetailsBean implements Serializable {
     @EJB
     private PlayerManager playerManager;
     /**

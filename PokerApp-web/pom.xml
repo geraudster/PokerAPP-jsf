@@ -30,7 +30,7 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>PokerApp-ejb</artifactId>
             <version>${project.version}</version>
-            <scope>provided</scope>
+            <scope>compile</scope>
 <!--
             <type>ejb-client</type>
             -->

@@ -47,18 +47,14 @@ public class LoginBean {
     private String username;
     private String password;
 
-    /**
-     * Creates a new instance of LoginBean
-     */
-    public LoginBean() {
-    }
-
     public String login() {
         if (username == null) return "errorLogin";
         if ("admin".equals(username)) {
             profileBean.setAuthenticated(true);
             Player adminPlayer = new Player();
             adminPlayer.setUsername("admin");
+            adminPlayer.setFirstName("admin");
+            adminPlayer.setName("Admin");
             profileBean.setPlayer(adminPlayer);
             return "welcomeAdmin";
         }

@@ -31,6 +31,7 @@ public class ProfileBean implements Serializable{
      */
     public ProfileBean() {
         this.player = new Player();
+        this.authenticated = false;
     }
     private boolean authenticated;
 
