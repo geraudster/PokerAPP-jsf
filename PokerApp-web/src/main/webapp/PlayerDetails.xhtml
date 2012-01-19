@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <body>
+
+        <ui:composition template="./templates/pokerTemplate.xhtml">
+
+            <ui:define name="content">
+                <p:messages/>
+                <p:growl showDetail="true" /> 
+                <h:panelGrid columns="1">
+                    <h:form>
+                        <h:outputText value="Find by username test:"/>
+                        <p:inputText id="username" value="#{playerDetailsBean.username}" required="true"/>
+                        <p:message for="username"  />
+                        <h:commandButton value="Search" action="#{playerDetailsBean.searchPlayer()}"/>
+
+                    </h:form>
+                </h:panelGrid>
+                <h:panelGrid columns="1" rendered="#{not empty playerDetailsBean.player}">
+                    <h:outputText value="Username : #{playerDetailsBean.player.username}"/>
+                    <h:outputText value="Name : #{playerDetailsBean.player.name}"/>
+                    <h:form id="gainsDetails">
+
+                        <p:dataTable var="gain" value="#{playerDetailsBean.player.gains}"
+                                     paginator="true" rows="10"  
+                                     paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                     rowsPerPageTemplate="5,10,15">  
+                            <f:facet name="header">  
+                                Ajax Pagination  
+                            </f:facet>  
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="Model" />  
+                                </f:facet>  
+                                <h:outputText value="#{gain.gameDate}" />  
+                            </p:column>  
+
+                            <p:column>  
+                                <f:facet name="header">  
+                                    <h:outputText value="Year" />  
+                                </f:facet>  
+                                <h:outputText value="#{gain.amount}" />  
+                            </p:column>  
+                        </p:dataTable>                </h:form>
+
+                </h:panelGrid>
+                <h:panelGrid columns="1" rendered="#{empty playerDetailsBean.player}">
+                    <h:outputText value="Username : #{playerDetailsBean.username} not found"/>
+                </h:panelGrid>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

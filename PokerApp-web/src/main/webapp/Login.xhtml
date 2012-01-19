@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <body>
+
+        <ui:composition template="./templates/pokerTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form id="loginForm">
+                        <h:panelGrid columns="3">
+                            <h:outputText value="Login"/>
+                            <p:inputText id="username" value="#{loginBean.username}" required="true" />
+                            <p:message for="username" />
+
+                            <h:outputText value="Password"/>
+                            <p:password id="password" value="#{loginBean.password}" required="true" feedback="false" minLength="1"/>
+                            <p:message for="password" />
+
+                            <p:commandButton action="#{loginBean.login}" value="Login" ajax="false"/>
+                        </h:panelGrid>
+                    <h:link value="Register" outcome="/CreationJoueur.xhtml" />
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

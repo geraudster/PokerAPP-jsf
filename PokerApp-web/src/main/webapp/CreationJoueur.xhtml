@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+
+    <body>
+
+        <ui:composition template="./templates/pokerTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form id="playerCreationForm" >
+                        <h:panelGrid columns="3">
+                            <h:outputText value="Name"/>
+                            <p:inputText id="name" value="#{playerCreationBean.name}" required="true"/>
+                            <p:message for="name" />
+
+                            <h:outputText value="Firstname"/>
+                            <p:inputText id="firstName" value="#{playerCreationBean.firstName}"/>
+                            <p:message for="firstName" />
+
+                            <h:outputText value="Age"/>
+                            <p:inputText id="age" value="#{playerCreationBean.age}"/>
+                            <p:message for="age" />
+
+                            <h:outputText value="Solde"/>
+                            <p:inputText id="solde" value="#{playerCreationBean.solde}"/>
+                            <p:message for="solde" />
+                            
+                            <h:outputText value="Username"/>
+                            <p:inputText id="username" value="#{playerCreationBean.username}" required="true"/>
+                            <p:message for="username" />
+                            
+                            <h:outputText value="Password"/>
+                            <p:password id="password" value="#{playerCreationBean.password}" required="true" feedback="true" minLength="4"/>
+                            <p:message for="password" />
+                            
+                            <h:commandButton action="#{playerCreationBean.createPlayer}" value="Create" />
+                        </h:panelGrid>
+
+                        <h:panelGrid columns="3" rendered="#{not empty playerCreationBean.players}">
+                            <p:dataTable var="player" value="#{playerCreationBean.players}" 
+                                         paginator="true" rows="10">  
+                                <p:column headerText="Name">  
+                                    <h:outputText value="#{player.name}" />  
+                                </p:column>  
+
+                                <p:column headerText="Firstname">  
+                                    <h:outputText value="#{player.firstName}" />  
+                                </p:column>  
+
+                                <p:column headerText="Age">  
+                                    <h:outputText value="#{player.age}" />  
+                                </p:column>  
+
+                                <p:column headerText="Solde">  
+                                    <h:outputText value="#{player.solde}" />  
+                                </p:column>  
+                            </p:dataTable>  
+                        </h:panelGrid>
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

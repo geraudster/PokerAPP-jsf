@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui" >
+
+    <body>
+
+        <ui:composition template="./templates/pokerTemplate.xhtml">
+
+            <ui:define name="content">
+            <h:form>  
+                <p:dataTable var="player" value="#{playerBean.players}">  
+                    <p:column headerText="Name">  
+                        <h:outputText value="#{player.name}" />  
+                    </p:column>  
+
+                    <p:column headerText="Firstname">  
+                        <h:outputText value="#{player.firstName}" />  
+                    </p:column>  
+
+                    <p:column headerText="Age">  
+                        <h:outputText value="#{player.age}" />  
+                    </p:column>  
+
+                    <p:column headerText="Solde">  
+                        <h:outputText value="#{player.solde}" />  
+                    </p:column>  
+
+                    <p:column headerText="Username">  
+                        <h:outputText value="#{player.username}" />  
+                    </p:column>  
+                </p:dataTable>
+
+                <h:link outcome="/PlayerDetails.xhtml" value="Search player"/>
+            </h:form>  
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

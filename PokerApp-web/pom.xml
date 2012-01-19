@@ -22,6 +22,20 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>2.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>PokerApp-ejb</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+<!--
+            <type>ejb-client</type>
+            -->
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
@@ -78,5 +92,12 @@
             </plugin>
         </plugins>
     </build>
-
+    <repositories>
+        <repository>
+            <url>http://repository.primefaces.org/</url>
+            <id>primefaces</id>
+            <layout>default</layout>
+            <name>Repository for library Library[primefaces]</name>
+        </repository>
+    </repositories>
 </project>
